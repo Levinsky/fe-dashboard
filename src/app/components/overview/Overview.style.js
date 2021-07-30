@@ -1,6 +1,6 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   layout: {
 
   },
@@ -16,6 +16,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: '23px',
     marginLeft: '143px',
   },
+  movies: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginLeft: '144px'
+  },
   pageTitle: {
     paddingTop: '114px',
     margin: '0 auto',
@@ -25,7 +30,8 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: '0px',
     color: '#000000',
     textTransform: 'uppercase',
-    opacity: '1'
+    opacity: '1',
+    marginBottom: '95px'
   },
   content: {
     margin: '0 auto',

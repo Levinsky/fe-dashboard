@@ -7,8 +7,7 @@ export default function overview(state = defaultState, action) {
         case "list": {
             return {
                 ...state,
-                csvFiles: [],
-                isFetching: true
+              news: []
             };
         }
         default:
