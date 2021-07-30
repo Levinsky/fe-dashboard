@@ -4,16 +4,15 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import './App.css';
-import Overview from "./components/overview/ui/Overview";
+import Overview from "./components/overview/Overview";
 
 function App() {
   return (
-    <div className="App">
+    <div>
         <Router>
             <div>
                 <Switch>
-                    <Route path="/">
+                    <Route path="/overview">
                         <Overview />
                     </Route>
                 </Switch>
