@@ -5,7 +5,6 @@ import { fetchMovies } from '../../actions/Overview.action';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-
 import Logo2 from '../../../Logo2.png';
 import Movie from '../movie/Movie';
 

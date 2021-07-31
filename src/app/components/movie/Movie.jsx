@@ -11,7 +11,7 @@ const Movie = ({movie}) => {
       <div><img className={classes.thumbnail} src={movie.image} alt={movie.image}/></div>
       <div className={classes.title}>{`${movie.title} (${movie.released})`}</div>
       {movie.rating ? <div><img className={classes.ratingStar} src={star} alt="next movie logo" />{movie.rating}</div> : <div className={classes.emptyRating}/>}
-      <div className={classes.detailsButton}><Details /></div>
+      <div className={classes.detailsButton}><Details movie={movie}/></div>
     </div>
   );
 

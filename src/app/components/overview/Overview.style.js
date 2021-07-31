@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
     color: '#000000',
     textTransform: 'uppercase',
     opacity: '1',
-    marginBottom: '95px'
+    marginBottom: '35px'
   },
   content: {
     margin: '0 auto',
