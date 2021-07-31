@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import ReactHtmlParser from 'react-html-parser';
+import star from '../../../star.svg';
+import reverseArrow from '../../../reverse-arrow.svg';
+import arrow from '../../../arrow.svg';
+import useStyles from './Details.style';
+
+const movie =[
+  {"id":"60027713","title":"2 Fast 2 Furious","image":"https://occ-0-2717-360.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABcPADEjySdmCNxJrnX6owPs92K-0NGAtcYnmtpNLqNsQTXglXWyTSo9MDTxUKFAYoEILjhAM0gNbxzanxRGjCoCc5g.jpg?r=ae6","synopsis":"It&#39;s a major double-cross when former cop Brian teams up with his ex-con buddy to transport a shipment of &#39;dirty&#39; money for a shady importer-exporter.<br><b>New on 2020-06-18</b>","rating":"5.9","type":"movie","released":"2003","runtime":"1h47m","largeimage":"https://occ-0-2774-2773.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABXWi8cWleYPwFmSJYzCdu4b8EalVrXaprZQvOgoA41Oau4m0IxZ8gEipVc0tNUxtdMaDT2zDMvNfJAeQU-MeXs3ky2l3.jpg?r=ae6","unogsdate":"2020-06-18","imdbid":"tt0322259","download":"1"}]
 
 const Details = () => {
-  const [open, setOpen] = React.useState(false);
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,28 +25,27 @@ const Details = () => {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>Read more</Button>
+      <Button onClick={handleClickOpen}>
+        <div className={classes.readMoreButton} ><span>Read more</span><img src={arrow} alt="arrow" /></div>
+      </Button>
       <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        classes={{ paper: classes.detailsDialog }}
+        open={open}>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
-          </DialogContentText>
+          <div className={classes.dialogContent}>
+            <div><img className={classes.largeThumbnail} src={movie[0].largeimage} alt={movie[0].largeimage}/></div>
+            <div>
+              <div className={classes.title}>{movie[0].title}</div>
+              <div className={classes.duration}>{movie[0].runtime}</div>
+              {movie[0].rating ? <div className={classes.rating}><img className={classes.ratingStar} src={star} alt="next movie logo" />{movie[0].rating}</div> : <div className={classes.emptyRating}/>}
+              <div className={classes.synopsis}>{ReactHtmlParser (movie[0].synopsis)}</div>
+              <Button className={classes.detailsButton} onClick={handleClose}>
+                <div className={classes.readMoreButton}><img src={reverseArrow} alt="reverse arrow" /><span>Back to list</span></div>
+              </Button>
+            </div>
+          </div>
+
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

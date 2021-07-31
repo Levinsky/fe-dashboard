@@ -186,7 +186,7 @@ const Overview = () => {
         <div className={classes.pageTitle}>Explore your next Movies and tv shows</div>
         <div className={classes.movies}>{movies.map(movie => {
           return (
-            <Movie movie={movie}/>
+            <Movie key={movie.id} movie={movie}/>
           )})
         }
         </div>
