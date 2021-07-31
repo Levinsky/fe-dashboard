@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import star from '../../../star.svg';
 import Details from '../details/Details'
 import useStyles from './Movie.style';
@@ -18,3 +19,7 @@ const Movie = ({movie}) => {
 };
 
 export default Movie;
+
+Movie.propTypes = {
+  movies: PropTypes.object,
+};
