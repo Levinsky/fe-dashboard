@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import overview from './components/overview/overviewe.reducer';
+import overview from './overviewe.reducer';
 
 const rootReducer = combineReducers({
     overview

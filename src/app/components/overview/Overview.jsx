@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from "prop-types";
+import { fetchMovies } from '../../actions/Overview.action';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { connect } from "react-redux";
 import Logo2 from '../../../Logo2.png';
 import Movie from '../movie/Movie';
 
 import useStyles from './Overview.style';
 
-const movies = [
+const mockMovies = [
   {
     "id": "207856",
     "title": "2001: A Space Odyssey",
@@ -176,20 +180,26 @@ const movies = [
 ];
 
 
-const Overview = () => {
+const Overview = ({isLoadingMovies, movies, fetchMovies}) => {
   const classes = useStyles();
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   return (
     <div className={classes.layout}>
       <div className={classes.header}><img className={classes.nextMovieLogo} src={Logo2} alt="next movie logo" /></div>
       <div className={classes.content}>
         <div className={classes.pageTitle}>Explore your next Movies and tv shows</div>
-        <div className={classes.movies}>{movies.map(movie => {
-          return (
-            <Movie key={movie.id} movie={movie}/>
-          )})
+        {isLoadingMovies
+        ? <div><CircularProgress style={{ margin: 'auto', display: 'flex', marginTop: '400px' }} size={20} /></div>
+        : <div className={classes.movies}>{movies.map(movie => {
+            return (
+              <Movie key={movie.id} movie={movie}/>
+            )})}
+          </div>
         }
-        </div>
       </div>
       <div className={classes.footer}>Footer</div>
 
@@ -199,4 +209,15 @@ const Overview = () => {
 };
 
 
-export default Overview;
+const mapStateToProps = state => ({
+  isLoadingMovies: state.overview.isLoadingMovies,
+  movies: state.overview.movies
+});
+
+export default connect(mapStateToProps, { fetchMovies })(Overview);
+
+Overview.propTypes = {
+  isLoadingMovies: PropTypes.bool,
+  movies: PropTypes.array,
+  fetchMovies: PropTypes.func
+};
