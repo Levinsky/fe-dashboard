@@ -21,6 +21,12 @@ const useStyles = makeStyles(() => ({
     flexWrap: 'wrap',
     marginLeft: '144px'
   },
+  sreachMovie: {
+    width: '500px',
+    marginLeft: '144px',
+    marginBottom: '10px',
+    orderRadius: '8px'
+  },
   pageTitle: {
     paddingTop: '114px',
     margin: '0 auto',

@@ -24,7 +24,7 @@ export default function overview(state = defaultState, action) {
           movies: result
         };
       }
-        default:
-            return state;
+      default:
+        return state;
     }
 }
