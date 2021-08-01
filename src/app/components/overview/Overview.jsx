@@ -10,7 +10,7 @@ import Movie from '../movie/Movie';
 
 import useStyles from './Overview.style';
 
-const Overview = ({isLoadingMovies = false, movies, fetchMovies}) => {
+const Overview = ({isLoadingMovies, movies, fetchMovies}) => {
   const [ filteredMovieTitle, setFilteredMovieTitle ] = useState("");
   const filteredMovies = getFilteredMovies(movies, filteredMovieTitle);
   const classes = useStyles();

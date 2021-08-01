@@ -44,7 +44,8 @@ const useStyles = makeStyles(() => ({
     width: '1920px',
     height: '1708px',
     background: '#00D7FF 0% 0% no-repeat padding-box',
-    opacity: '1'
+    opacity: '1',
+    overflowY: 'scroll'
   },
   footer: {
     margin: '0 auto',
