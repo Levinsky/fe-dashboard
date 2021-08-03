@@ -36,12 +36,10 @@ const Details = ({movie}) => {
               <div className={classes.title}>{movie.title}</div>
               <div className={classes.duration}>{movie.runtime}</div>
               {movie.rating ? <div className={classes.rating}><img className={classes.ratingStar} src={star} alt="next movie logo" />{`${movie.rating}/10`}</div> : <div className={classes.emptyRating}/>}
-              <div>
-                <div className={classes.synopsis}>{ReactHtmlParser (movie.synopsis)}</div>
-                <Button className={classes.detailsButton} onClick={handleClose}>
-                  <div className={classes.readMoreButton}><img src={reverseArrow} alt="reverse arrow" /><span>Back to list</span></div>
-                </Button>
-              </div>
+              <div className={classes.synopsis}>{ReactHtmlParser (movie.synopsis)}</div>
+              <Button className={classes.detailsButton} onClick={handleClose}>
+                <div className={classes.readMoreButton}><img src={reverseArrow} alt="reverse arrow" /><span>Back to list</span></div>
+              </Button>
             </div>
           </div>
 
