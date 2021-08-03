@@ -2,8 +2,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles(() => ({
   detailsButton: {
-    marginTop: '20px',
-    marginBottom: '95px',
+    marginTop: '237px',
     width: '260px',
     height: '38px',
     border: '1px solid #000000',
