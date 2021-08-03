@@ -13,6 +13,10 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-between',
     textTransform: 'capitalize',
+    "@media (max-width: 600px)": {
+      width: '125px',
+      marginTop: '-4px'
+    }
   },
   ratingStar: {
     marginRight: '10px',
