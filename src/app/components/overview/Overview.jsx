@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Logo2 from '../../../Logo2.png';
 import Movie from '../movie/Movie';
+import Footer from '../footer/Footer'
 
 import useStyles from './Overview.style';
 
@@ -62,7 +63,9 @@ const Overview = ({isLoadingMovies, movies, fetchMovies}) => {
           </React.Fragment>
         }
       </div>
-      <div className={classes.footer}>Footer</div>
+      <div className={classes.footer}>
+        <Footer/>
+      </div>
 
     </div>
   );

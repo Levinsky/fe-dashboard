@@ -177,10 +177,10 @@ export const fetchMovies = () => (dispatch) => {
 
   dispatch({type: OverviewActions.IS_LOADING_MOVIES, payload: { }});
 
-  //dispatch({type: OverviewActions.FETCH_MOVIES_RESULTS_SUCCESS, payload: { result: mockMovies }});
+  dispatch({type: OverviewActions.FETCH_MOVIES_RESULTS_SUCCESS, payload: { result: mockMovies }});
 
-  axios.get(moviesUrl).then(result => {
+  /*axios.get(moviesUrl).then(result => {
     console.log(result);
     dispatch({type: OverviewActions.FETCH_MOVIES_RESULTS_SUCCESS, payload: { result: result.data }});
-  });
+  });*/
 };

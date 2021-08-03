@@ -15,6 +15,10 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'space-between',
     textTransform: 'capitalize',
   },
+  ratingStar: {
+    marginRight: '10px',
+    marginBottom: '-2px'
+  },
   largeThumbnail: {
     width: '398px',
     height: '591px',
