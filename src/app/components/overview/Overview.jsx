@@ -29,7 +29,7 @@ const Overview = ({isLoadingMovies, movies, fetchMovies}) => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [fetchMovies]);
 
   return (
     <div className={classes.layout}>
@@ -37,30 +37,30 @@ const Overview = ({isLoadingMovies, movies, fetchMovies}) => {
       <div className={classes.content}>
         {isLoadingMovies
           ? <div><CircularProgress style={{ margin: 'auto', display: 'flex', marginTop: '400px' }} size={20} /></div>
-          : <React.Fragment>
-            <div className={classes.pageTitle}>Explore your next Movies and tv shows</div>
-            <div className={classes.sreachMovie}>
-              <Autocomplete
-                freeSolo
-                onInputChange={(event, title) => onFilterMovie(title)}
-                options={movies}
-                getOptionLabel={(option) => option.title}
-                renderOption={(option) => (
-                  <React.Fragment>
-                    {option.title}
-                  </React.Fragment>
-                )}
-                renderInput={(params) => (
-                  <TextField {...params} label="Search for your movie" margin="normal" variant="outlined" />
-                )}
-              />
-            </div>
-            <div className={classes.movies}>{filteredMovies.map(movie => {
-              return (
-                <Movie key={movie.id} movie={movie}/>
-              )})}
-            </div>
-          </React.Fragment>
+          : movies.length > 0 && <React.Fragment>
+          <div className={classes.pageTitle}>Explore your next Movies and tv shows</div>
+          <div className={classes.sreachMovie}>
+            <Autocomplete
+              freeSolo
+              onInputChange={(event, title) => onFilterMovie(title)}
+              options={movies}
+              getOptionLabel={(option) => option.title}
+              renderOption={(option) => (
+                <React.Fragment>
+                  {option.title}
+                </React.Fragment>
+              )}
+              renderInput={(params) => (
+                <TextField {...params} label="Search for your movie" margin="normal" variant="outlined" />
+              )}
+            />
+          </div>
+          <div className={classes.movies}>{filteredMovies.map(movie => {
+            return (
+              <Movie key={movie.id} movie={movie}/>
+            )})}
+          </div>
+        </React.Fragment>
         }
       </div>
       <div className={classes.footer}>

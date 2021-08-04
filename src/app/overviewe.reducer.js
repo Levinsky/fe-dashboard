@@ -24,6 +24,13 @@ export default function overview(state = defaultState, action) {
           movies: result
         };
       }
+      case OverviewActions.FETCH_MOVIES_RESULTS_FAILURE: {
+        return {
+          ...cloneDeep(state),
+          isLoadingMovies: false,
+          movies: []
+        };
+      }
       default:
         return state;
     }
